@@ -1,5 +1,6 @@
 #Ćwiczenie 7 str 179
 #podanie dwóch podstawowych kolorów wyświetli kolor powstały z wymieszania obydwu
+#Dodane wymagania co do komunikatach o błędach.
 
 col1 = str(input('Podaj nazwę pierwszego koloru: '))
 col2 = str(input('Podaj nazwę drugiego koloru: '))
@@ -43,11 +44,3 @@ else:
             print('Po wymieszaniu powstanie pomarańczowy.')
         if green:
             print('Po wymieszaniu powstanie zielony.')
-
-
-
-#########################################################
-#########################################################
-######################## 4 godziny siedzenia ############
-#########################################################
-#########################################################
