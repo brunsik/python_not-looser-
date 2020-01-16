@@ -1,6 +1,5 @@
-#Ćwiczenie 7 str 179
-#podanie dwóch podstawowych kolorów wyświetli kolor powstały z wymieszania obydwu
-#Dodane wymagania co do komunikatach o błędach.
+#Podanie dwóch podstawowych kolorów wyświetli kolor powstały z wymieszania obydwu.
+#Dodane wymagania co do komunikatów o błędach.
 
 col1 = str(input('Podaj nazwę pierwszego koloru: '))
 col2 = str(input('Podaj nazwę drugiego koloru: '))
@@ -20,6 +19,8 @@ if not(col1 == 'czerwony' or col1 == 'niebieski' or col1 == 'żółty'):
         print(error2)
         if col1 == col2:
             print(error)  
+            
+##To robi to samo co blok poniżej.
 ##else:
 ##    if not(col2 == 'czerwony' or col2 == 'niebieski' or col2 == 'żółty'):
 ##        print(error2)
