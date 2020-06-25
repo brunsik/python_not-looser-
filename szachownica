@@ -1,0 +1,70 @@
+import turtle
+
+SIZE = 20
+AMOUNT = 7
+START_X = 0
+START_Y = 0
+
+def main():
+    turtle.setup(1000, 1000)
+    turtle.speed(8)
+    turtle.penup()
+    turtle.goto(START_X, START_Y)
+    draw_outline()
+    next_y = START_Y
+    for rows in range(1, AMOUNT + 1):
+        if (rows % 2) != 0:
+            for i in range(1, AMOUNT + 1):
+                if (i % 2) != 0:
+                    draw_black()
+                    turtle.penup()
+                    turtle.forward(SIZE)
+                    turtle.pendown()
+                else:
+                    draw_white()
+                    turtle.penup()
+                    turtle.forward(SIZE)
+                    turtle.pendown()
+        else:
+            for i in range(1, AMOUNT + 1):
+                if (i % 2) != 0:
+                    draw_white()
+                    turtle.penup()
+                    turtle.forward(SIZE)
+                    turtle.pendown()
+                else:
+                    draw_black()
+                    turtle.penup()
+                    turtle.forward(SIZE)
+                    turtle.pendown()
+        next_y += SIZE
+        turtle.penup()
+        turtle.goto(START_X, next_y)
+    turtle.mainloop()
+def draw_black():
+    turtle.pendown()
+    turtle.fillcolor('black')
+    turtle.begin_fill()
+    for i in range(4):
+        turtle.forward(SIZE)
+        turtle.left(90)
+    turtle.end_fill()
+    turtle.penup()
+
+def draw_white():
+    turtle.pendown()
+    turtle.fillcolor('white')
+    turtle.begin_fill()
+    for i in range(4):
+        turtle.forward(SIZE)
+        turtle.left(90)
+    turtle.end_fill()
+    turtle.penup()
+
+def draw_outline():
+    turtle.pendown()
+    for i in range(4):
+        turtle.forward(AMOUNT * SIZE)
+        turtle.left(90)
+
+main()
