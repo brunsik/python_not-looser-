@@ -1,0 +1,85 @@
+
+import turtle
+import random
+SIZE = 300
+START_X = 0
+START_Y = 0
+
+def main():
+    turtle.penup()
+    turtle.goto(0, 0)
+    turtle.speed(0)
+    draw_sky_canvas()
+    stars()
+    draw_buildings()
+    turtle.mainloop()
+
+def draw_sky_canvas():
+    turtle.pendown()
+    turtle.fillcolor('black')
+    turtle.begin_fill()
+    for i in range(4):
+        turtle.forward(SIZE)
+        turtle.left(90)
+    turtle.end_fill()
+    turtle.penup()
+
+def stars():
+    turtle.fillcolor('white')
+    for s in range(5):
+        turtle.goto(random.randint(START_X + 1, SIZE - 1), random.randint(0.5 * SIZE, SIZE - 1))
+        turtle.pendown()
+        turtle.begin_fill()
+        turtle.circle(0.01 * SIZE)
+        turtle.end_fill()
+        turtle.penup()
+
+def draw_buildings():
+    turtle.goto(START_X, START_Y)
+    print(f'x {turtle.ycor()}', f'y: {turtle.ycor()}')
+    turtle.fillcolor('grey')
+    before_y = turtle.ycor()
+    print('before_y:', before_y)
+    after_y = random.randint(0.25 * SIZE, 0.7 * SIZE)
+    print('after y:', after_y)
+    turtle.begin_fill()
+    xxx = 0
+    dist_x = SIZE - 0.1 * SIZE
+    while xxx < SIZE:
+        turtle.pendown()
+        dist_x = random.randint(0.1 * SIZE, 0.3 * SIZE)
+        if xxx <= SIZE - 0.3 * SIZE:
+            if after_y > before_y:
+                turtle.left(90)
+                roznica = after_y - before_y
+                print(roznica)
+                turtle.forward(roznica)
+                turtle.right(90)
+            else:
+                turtle.right(90)
+                roznica = before_y - after_y
+                print(roznica)
+                turtle.forward(roznica)
+                turtle.left(90)
+            turtle.forward(dist_x)
+            print('a2:', turtle.ycor())
+        else:
+            if after_y > before_y:
+                turtle.left(90)
+                turtle.forward(after_y - before_y)
+                turtle.right(90)
+            else:
+                turtle.right(90)
+                turtle.forward(before_y - after_y)
+                turtle.left(90)
+            turtle.forward(SIZE - turtle.xcor())
+        xxx += dist_x
+        print(xxx)
+        before_y = turtle.ycor()
+        print('a:', turtle.ycor())
+        after_y = random.randint(0.1 * SIZE, 0.8 * SIZE)
+        print('b:', after_y)
+    turtle.goto(SIZE, START_Y)
+    turtle.end_fill()
+
+main()
