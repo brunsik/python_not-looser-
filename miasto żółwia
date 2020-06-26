@@ -36,12 +36,9 @@ def stars():
 
 def draw_buildings():
     turtle.goto(START_X, START_Y)
-    print(f'x {turtle.ycor()}', f'y: {turtle.ycor()}')
     turtle.fillcolor('grey')
     before_y = turtle.ycor()
-    print('before_y:', before_y)
     after_y = random.randint(0.25 * SIZE, 0.7 * SIZE)
-    print('after y:', after_y)
     turtle.begin_fill()
     xxx = 0
     dist_x = SIZE - 0.1 * SIZE
@@ -52,17 +49,14 @@ def draw_buildings():
             if after_y > before_y:
                 turtle.left(90)
                 roznica = after_y - before_y
-                print(roznica)
                 turtle.forward(roznica)
                 turtle.right(90)
             else:
                 turtle.right(90)
                 roznica = before_y - after_y
-                print(roznica)
                 turtle.forward(roznica)
                 turtle.left(90)
             turtle.forward(dist_x)
-            print('a2:', turtle.ycor())
         else:
             if after_y > before_y:
                 turtle.left(90)
@@ -74,11 +68,8 @@ def draw_buildings():
                 turtle.left(90)
             turtle.forward(SIZE - turtle.xcor())
         xxx += dist_x
-        print(xxx)
         before_y = turtle.ycor()
-        print('a:', turtle.ycor())
         after_y = random.randint(0.1 * SIZE, 0.8 * SIZE)
-        print('b:', after_y)
     turtle.goto(SIZE, START_Y)
     turtle.end_fill()
 
