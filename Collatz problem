@@ -1,18 +1,23 @@
 def main():
-    number = int(input('Podaj liczbę całkowitą: '))
-    print(number)
 
-    def collatz():
-        if number % 2 == 0:
-            return number // 2
-        else:
-            return 3 * number + 1
-
-    while collatz() != 1:
-        number = collatz()
+    try:
+        number = int(input('Podaj liczbę całkowitą: '))
         print(number)
-        collatz()
 
-    print(1)
+        def collatz():
+            if number % 2 == 0:
+                return number // 2
+            else:
+                return 3 * number + 1
+
+        while collatz() != 1:
+            number = collatz()
+            print(number)
+            collatz()
+
+        print(1)
+
+    except ValueError:
+        print('Błąd: podaj poprawną wartość.')
 
 main()
